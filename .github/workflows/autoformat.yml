@@ -26,8 +26,8 @@ jobs:
           path: |
             ./node_modules
             ~/.pnpm
-          key: pnpm-${{ env.PNPM_VERSION }}-${{ hashFiles('pnpm-lock.yaml') }}
-          restore-keys: pnpm-${{ env.PNPM_VERSION }}-
+          key: pnpm-v${{ env.PNPM_VERSION }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: pnpm-v${{ env.PNPM_VERSION }}-
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
