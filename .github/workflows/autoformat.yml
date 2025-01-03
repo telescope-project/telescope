@@ -42,7 +42,7 @@ jobs:
           run_install: true
 
       - name: Format (Biome)
-        run: pnpm biome format:write
+        run: pnpm run format:write
 
       - name: Git
         env:
