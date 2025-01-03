@@ -41,6 +41,9 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
           run_install: true
 
+      - name: Lint (Biome)
+        run: pnpm run lint:write
+
       - name: Format (Biome)
         run: pnpm run format:write
 
