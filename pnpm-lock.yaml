@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@sveltejs/adapter-cloudflare':
-        specifier: ^5.0.0
-        version: 5.0.0(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.1)(vite@5.4.11(@types/node@22.10.5)))(svelte@5.16.1)(vite@5.4.11(@types/node@22.10.5)))(wrangler@3.99.0(@cloudflare/workers-types@4.20241230.0))
       hono:
         specifier: ^4.6.15
         version: 4.6.15
@@ -18,6 +15,9 @@ importers:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
+      '@sveltejs/adapter-cloudflare':
+        specifier: ^5.0.0
+        version: 5.0.0(@sveltejs/kit@2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.1)(vite@5.4.11(@types/node@22.10.5)))(svelte@5.16.1)(vite@5.4.11(@types/node@22.10.5)))(wrangler@3.99.0(@cloudflare/workers-types@4.20241230.0))
       '@sveltejs/kit':
         specifier: ^2.0.0
         version: 2.15.1(@sveltejs/vite-plugin-svelte@4.0.4(svelte@5.16.1)(vite@5.4.11(@types/node@22.10.5)))(svelte@5.16.1)(vite@5.4.11(@types/node@22.10.5))
