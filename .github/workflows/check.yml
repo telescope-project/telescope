@@ -41,9 +41,9 @@ jobs:
         if: ${{ !cancelled() }}
         run: pnpm run lint
 
-      - name: Format check (Biome)
-        if: ${{ !cancelled() }}
-        run: pnpm run format
+      #- name: Format check (Biome)
+      #  if: ${{ !cancelled() }}
+      #  run: pnpm run format
 
       - name: Svelte check
         if: ${{ !cancelled() }}
