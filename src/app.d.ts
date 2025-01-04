@@ -10,6 +10,7 @@ declare global {
     // interface PageData {}
     // interface PageState {}
     interface Platform {
+      // biome-ignore lint/complexity/noBannedTypes:
       env: {
       }
       context: ExecutionContext
@@ -18,4 +19,5 @@ declare global {
   }
 }
 
+// biome-ignore lint/complexity/noUselessEmptyExport:
 export {}

@@ -20,9 +20,13 @@
     "enabled": true,
     "rules": {
       "all": true,
+      "correctness": {
+        "noUnusedVariables": "off"
+      },
       "style": {
         "noDefaultExport": "off",
-        "noNamespace": "off"
+        "noNamespace": "off",
+        "useConst": "off"
       }
     }
   },
