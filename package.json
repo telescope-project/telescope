@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
+    "@ryoppippi/unplugin-typia": "^1.1.0",
     "@sveltejs/adapter-cloudflare": "^5.0.0",
     "@sveltejs/kit": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
@@ -27,7 +28,9 @@
     "vite": "^5.4.11"
   },
   "dependencies": {
+    "@hono/typia-validator": "^0.1.0",
     "@unocss/reset": "^0.65.3",
-    "hono": "^4.6.15"
+    "hono": "^4.6.15",
+    "typia": "^7.5.1"
   }
 }
