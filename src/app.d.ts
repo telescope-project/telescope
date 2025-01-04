@@ -11,7 +11,8 @@ declare global {
     // interface PageState {}
     interface Platform {
       env: {
-        db: D1Database
+        // biome-ignore lint/style/useNamingConvention:
+        DB: D1Database
       }
       context: ExecutionContext
       caches: CacheStorage & { default: Cache }

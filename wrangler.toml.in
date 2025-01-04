@@ -1,0 +1,9 @@
+name = "telescope"
+compatibility_date = "2024-09-02"
+send_metrics = false
+
+[[d1_databases]]
+binding = "DB"
+database_id = "${CLOUDFLARE_DB_ID}"
+database_name = "${CLOUDFLARE_DB_NAME}"
+migrations_dir = "drizzle/migrations"
