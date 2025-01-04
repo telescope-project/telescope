@@ -21,6 +21,7 @@
     "rules": {
       "all": true,
       "correctness": {
+        "noUndeclaredVariables": "off",
         "noUnusedVariables": "off"
       },
       "style": {

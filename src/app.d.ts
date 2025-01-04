@@ -10,8 +10,8 @@ declare global {
     // interface PageData {}
     // interface PageState {}
     interface Platform {
-      // biome-ignore lint/complexity/noBannedTypes:
       env: {
+        db: D1Database
       }
       context: ExecutionContext
       caches: CacheStorage & { default: Cache }

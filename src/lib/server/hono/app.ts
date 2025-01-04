@@ -1,7 +1,6 @@
 import { Hono } from "hono"
 
 export type HonoBindings = Partial<
-  // biome-ignore lint/correctness/noUndeclaredVariables:
   App.Platform["env"] & { caches: App.Platform["caches"] }
 >
 
