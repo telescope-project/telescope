@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "pnpm run build \"/^build:.+/\"",
+    "build": "pnpm run \"/^build:.+/\"",
     "build:wrangler": "envsubst < wrangler.toml.in > wrangler.toml",
     "build:sveltekit": "vite build",
     "preview": "vite preview",
