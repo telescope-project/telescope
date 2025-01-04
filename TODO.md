@@ -10,3 +10,7 @@ https://frontavo.com/blog/setting-up-unocss-with-sveltekit
 ## Set data-sveltekit-preload-data
 
 - Posts on TL -> `tap`
+
+## ActivityPub
+
+- https://github.com/yusukebe/minidon
