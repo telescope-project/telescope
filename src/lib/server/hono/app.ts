@@ -15,4 +15,3 @@ const app = new Hono<{
 .get("/hono", c => c.text("Hono!"))
 
 export default app
-export type appType = typeof app
