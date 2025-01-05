@@ -41,6 +41,9 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
           run_install: true
 
+      - name: Switch branch
+        run: git switch -c autofix-${{ github.sha }}
+
       - name: Lint (Biome)
         run: pnpm run lint:write
 
