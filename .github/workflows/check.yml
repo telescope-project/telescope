@@ -20,7 +20,7 @@ jobs:
         with:
           path: |
             ./node_modules
-            ~/.pnpm
+            ~/.local/share/pnpm/store
           key: pnpm-v${{ env.PNPM_VERSION }}-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: pnpm-v${{ env.PNPM_VERSION }}-
 
