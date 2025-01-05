@@ -10,7 +10,7 @@
     "ignore": [".svelte-kit/**/*"]
   },
   "formatter": {
-    "enabled": true,
+    "enabled": false,
     "indentStyle": "space"
   },
   "organizeImports": {

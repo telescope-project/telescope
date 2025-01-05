@@ -36,14 +36,10 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
           run_install: true
 
-      - name: Lint (Biome)
+      - name: Biome
         #if: ${{ success() || failure() }}
         if: ${{ !cancelled() }}
-        run: pnpm run lint
-
-      #- name: Format check (Biome)
-      #  if: ${{ !cancelled() }}
-      #  run: pnpm run format
+        run: pnpm exec biome ci
 
       - name: Svelte check
         if: ${{ !cancelled() }}

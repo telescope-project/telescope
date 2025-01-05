@@ -2,6 +2,12 @@ name: Auto fix
 
 on:
   workflow_dispatch:
+    inputs:
+      unsafe:
+        type: boolean
+        required: false
+        description: 'Apply unsafe changes'
+        default: false
 
 permissions:
   contents: write
@@ -41,14 +47,21 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
           run_install: true
 
+      - name: Unsafe setting
+        id: unsafe
+        if: ${{ inputs.unsafe }}
+        run: |
+          echo 'arg=--unsafe' >> $GITHUB_OUTPUT
+
       - name: Switch branch
         run: git switch -c autofix-${{ github.sha }}
 
-      - name: Lint (Biome)
-        run: pnpm run lint:write
-
-      #- name: Format (Biome)
-      #  run: pnpm run format:write
+      - name: Biome
+        id: biome
+        shell: /usr/bin/bash {0}
+        run: |
+          pnpm exec biome check --write ${{ steps.unsafe.outputs.arg }}
+          echo 'status=$?' >> $GITHUB_OUTPUT
 
       - name: Git
         env:
@@ -61,5 +74,20 @@ jobs:
             git commit -m "Auto format"
             git push -u origin autofix-${{ github.sha }}
 
-            gh pr create --base ${{ github.ref_name }} --title "Auto format" --body ""
+            echo "## Note" >> /tmp/pr_body
+            echo >> /tmp/pr_body
+            if [ "${{ inputs.unsafe }}" = "true" ]; then
+              echo "- Contains unsafe changes" >> /tmp/pr_body
+            elif [ "${{ steps.biome.outputs.status }}" -ne 0 ]; then
+              echo "- Incomplete fix" >> /tmp/pr_body
+            else
+              echo "nothing to write" >> /tmp/pr_body
+            fi
+
+            echo >> /tmp/pr_body
+            echo "## Log:" >> /tmp/pr_body
+            echo >> /tmp/pr_body
+            echo "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" >> /tmp/pr_body
+
+            gh pr create --base ${{ github.ref_name }} --title "Auto format" --body-file /tmp/pr_body
           fi
