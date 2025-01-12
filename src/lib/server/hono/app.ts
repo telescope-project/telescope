@@ -1,6 +1,6 @@
 import { Hono } from "hono"
 import { drizzle, DrizzleD1Database } from "drizzle-orm/d1"
-import * as s from "$lib/server/db/schema/index.ts"
+import type * as s from "$lib/server/db/schema/index.ts"
 
 export type HonoBindings = Partial<
   App.Platform["env"] & { caches: App.Platform["caches"] }
@@ -16,7 +16,7 @@ const app = new Hono<{
   Variables: Variables,
 }>()
 .use("*", async c => {
-  c.set("db", drizzle(c.env.DB, { schema: s }))
+  c.set("db", drizzle<{ schema: s }>(c.env.DB))
 })
 .get("/", c => c.text("Hello from Hono"))
 .get("/hono", c => c.text("Hono!"))
